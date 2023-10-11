@@ -7,6 +7,7 @@
 * **[Random value generations](#random-value-generations)**
 * **[Running the script](#running-the-script)**
 * **[Encoding requirement](#encoding-requirement)**
+* **[Creating the test environment](#creating-the-test-environment)**
 
 
 ## Getting started with the script
