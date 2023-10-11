@@ -141,3 +141,10 @@ The script can be easily run by opening a command prompt. There is no need to op
 <pre>powershell.exe -File .\sql-load-gen.ps1</pre>
 
 ![console-run](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/e7326c5b-3e1a-44ba-8372-e5636e6037b7)
+
+If the parameters in the `config.txt` file are not entered as desired, it will provide you with a detailed, informative error message.
+
+![console-error](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/2f9178e0-cb7b-4c5c-8707-f5c120a6c1bb)
+
+
+![error-animated](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/e17cd27e-f21c-48fc-8764-b65b2b2a9c53)
