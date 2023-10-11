@@ -36,4 +36,4 @@ The **`config.txt`** file consists of 9 parameters: `AuthenticationType`, `Serve
 
 
 
-If `AuthenticationType` is specified as "WIN", all the parameters mentioned above must be written in the `config.txt` file. If it is specified as "SQL", the `UserName` and `Password` parameters are not required. If `AuthenticationType` is specified as "WIN" and the `UserName` and `Password` parameters are still set to specific values in the file, these two parameters will be skipped, and whether or not they have any values will not affect the operation of the script.
+If `AuthenticationType` is specified as "**WIN**", all the parameters mentioned above must be written in the `config.txt` file. If it is specified as "**SQL**", the `UserName` and `Password` parameters are not required. If `AuthenticationType` is specified as "**WIN**" and the `UserName` and `Password` parameters are still set to specific values in the file, these two parameters will be skipped, and whether or not they have any values will not affect the operation of the script.
