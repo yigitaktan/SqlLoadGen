@@ -146,5 +146,11 @@ If the parameters in the `config.txt` file are not written as they should be, it
 
 ![console-error](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/2f9178e0-cb7b-4c5c-8707-f5c120a6c1bb)
 
+As the script starts running and executing the SPs, you can track the elapsed time through the countdown and progress bar on the console screen.
 
+![console-progress](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/0f76ef53-9869-49d1-835e-ca075f732620)
+
+When the script completes the duration specified in `config.txt`, the word "**Completed**" appears on the screen. Additionally, it reports how many of the executed SPs were successful and how many failed.
+
+![console-completed](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/5e782683-7c5e-4ff3-8db3-29f4ccef21fc)
 
