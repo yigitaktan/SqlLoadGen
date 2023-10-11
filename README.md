@@ -122,8 +122,8 @@ You might want to generate random parameter values for SPs that take parameters.
 To give examples of the usage of these 3 functions, an example can be created as follows.
 
 ```
-dbo.sp_DeleteUser;@UserID=**{rnd-number:3,123456789}**
-dbo.sp_AddOrder;@UserID=**{rnd-number:5,12345}**;@OrderDate=**{rnd-date:2013-2023}**
-dbo.sp_AddProduct;@ProductName=**{rnd-text:10,abcdefghijklmnopqrstuvwxyz}**;@CategoryID=2;@Price=**{rnd-number:3,123456789}**
+dbo.sp_DeleteUser;@UserID={rnd-number:3,123456789}
+dbo.sp_AddOrder;@UserID={rnd-number:5,12345};@OrderDate={rnd-date:2013-2023}
+dbo.sp_AddProduct;@ProductName={rnd-text:10,abcdefghijklmnopqrstuvwxyz};@CategoryID=2;@Price={rnd-number:3,123456789}
 ```
 
