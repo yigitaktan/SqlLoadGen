@@ -322,6 +322,14 @@ BEGIN
 END;
 GO
 
+-- Retrieves all product categories.
+CREATE PROCEDURE sp_GetProductCategories
+AS
+BEGIN
+    SELECT CategoryName FROM ProductCategories WITH(NOLOCK);
+END;
+GO
+
 USE [master]
 GO
 
@@ -363,57 +371,5 @@ GRANT EXECUTE ON dbo.sp_AddProduct TO MyDemoUser;
 GRANT EXECUTE ON dbo.sp_UpdateProduct TO MyDemoUser;
 GRANT EXECUTE ON dbo.sp_DeleteProduct TO MyDemoUser;
 GRANT EXECUTE ON dbo.sp_GetProductsByCategory TO MyDemoUser;
+GRANT EXECUTE ON dbo.sp_GetProductCategories TO MyDemoUser;
 GO
-
-
-/*
-USE [DemoDB]
-GO
-EXEC dbo.sp_AddUserAndAddress @FirstName = 'John', @LastName = 'Doe', @Age = 30, @City = 'New York', @PostalCode = '10001';
-GO
-EXEC dbo.sp_AddUserAndAddress @FirstName = 'Jane', @LastName = 'Doe', @Age = 28, @City = 'Los Angeles', @PostalCode = '90001';
-GO
-EXEC dbo.sp_UpdateUser @UserID = 1, @NewFirstName = 'Johnny', @NewLastName = 'Doe', @NewAge = 31;
-GO
-EXEC dbo.sp_UpdateUser @UserID = 2, @NewFirstName = 'Janet', @NewLastName = 'Doe', @NewAge = 29;
-GO
-EXEC sp_DeleteUser @UserID = 1;
-GO
-EXEC sp_DeleteUser @UserID = 2;
-GO
-EXEC dbo.sp_AddOrder @UserID = 1, @OrderDate = '2023-01-01';
-GO
-EXEC dbo.sp_AddOrder @UserID = 2, @OrderDate = '2023-02-01';
-GO
-EXEC dbo.sp_AddOrderDetail @OrderID = 1, @ProductID = 1, @Quantity = 2;
-GO
-EXEC dbo.sp_AddOrderDetail @OrderID = 2, @ProductID = 2, @Quantity = 3;
-GO
-EXEC dbo.sp_GetAllUsers;
-GO
-EXEC dbo.sp_GetOrdersByUser @UserID = 1;
-GO
-EXEC dbo.sp_GetOrdersByUser @UserID = 2;
-GO
-EXEC dbo.sp_GetOrderDetails @OrderID = 1;
-GO
-EXEC dbo.sp_GetOrderDetails @OrderID = 2;
-GO
-EXEC sp_AddProduct @ProductName = 'Tablet', @CategoryID = 1, @Price = 250.00;
-GO
-EXEC sp_AddProduct @ProductName = 'Jacket', @CategoryID = 2, @Price = 75.00;
-GO
-EXEC sp_UpdateProduct @ProductID = 1, @NewProductName = 'Gaming Laptop', @NewCategoryID = 1, @NewPrice = 1500.00;
-GO
-EXEC sp_UpdateProduct @ProductID = 2, @NewProductName = 'Winter Jacket', @NewCategoryID = 2, @NewPrice = 120.00;
-GO
-EXEC sp_DeleteProduct @ProductID = 1;
-GO
-EXEC sp_DeleteProduct @ProductID = 2;
-GO
-EXEC sp_GetProductsByCategory @CategoryID = 1;
-GO
-EXEC sp_GetProductsByCategory @CategoryID = 2;
-GO
-
-*/
