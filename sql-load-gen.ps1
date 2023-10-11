@@ -226,19 +226,29 @@ while ((Get-Date) -lt $EndTime) {
         $Command.CommandType = [System.Data.CommandType]::StoredProcedure
         $Command.CommandText = $SpName
 
+        $ParamTexts = @()
         foreach ($ParamName in $SpParams.Keys) {
           $Param = $Command.CreateParameter()
           $Param.ParameterName = $ParamName
           $Param.Value = Generate_Random_Parameter_Values ($SpParams[$ParamName])
           $Command.Parameters.Add($Param) | Out-Null
+
+          if ($Param.Value -is [string]) {
+            $ParamTexts += "$ParamName=N'$($Param.Value)'"
+          }
+          else {
+            $ParamTexts += "$ParamName=$($Param.Value)"
+          }
         }
 
         $Command.ExecuteNonQuery() | Out-Null
         $SuccessfulSpCount++
+
       }
     }
     catch {
-      Write-ErrorToFile -FilePath $ErrFile -ErrorMsg $_ | Out-Null
+      $QueryText = "EXEC $SpName " + ($ParamTexts -join ",")
+      Write-ErrorToFile -FilePath $ErrFile -ErrorMsgSpName $SpName -ErrorMsgSpSent $QueryText -ErrorMsgException $($_.Exception.InnerException.Message) | Out-Null
       $ErrorSpCount++
     }
   }
