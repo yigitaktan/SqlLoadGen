@@ -1,5 +1,12 @@
 # SQL Load Generator
 
+* **[Getting started with the script](#Getting-started-with-the-script)**
+* **[Script components](#Script-components)**
+* **[Preparing the config.txt file](#preparing-the-configtxt-file)**
+* **[Preparing the SP file](#preparing-the-sp-file)**
+* **[Random Value Generation Functions](#random-value-generation-functions)**
+
+
 ## Getting started with the script
 You can effortlessly create load in your SQL environments by utilizing the Stored Procedures (SPs) and parameters that are actively used in your real-world scenarios. You have the capability to configure the duration for which the load should be generated, specify the parameters to be employed during the execution of the SPs, and determine the number of parallel connections to be established for executing these SPs. Consequently, you can simulate a load identical to that in your production environment, with the options of your choosing.
 
