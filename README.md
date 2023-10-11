@@ -163,7 +163,9 @@ If there are any errors encountered during the execution of the SPs, it logs the
 Both `sql-load-gen.ps1` and `functions.psm1` files must be set with a character encoding of **UTF-16LE** or **UTF-16BE**. If either of these files has a different encoding standard than specified, the following error message will appear.
 
 ![console-encoding](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/9b47c827-b831-4f75-aabe-a41eefc364aa)
+![console-encoding2](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/4f4d7c2e-a516-4479-888d-44dc9e582826)
 
 If you get an encoding error, you should open the files in a text editor like Notepad++ and save them as **UTF-16LE** or **UTF-16BE**. How to do this with Notepad++ is shown below.
 
 ![console-notepadpp](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/2a969ae8-4dac-41a3-b1ad-c40981f28af7)
+
