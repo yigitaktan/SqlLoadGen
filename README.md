@@ -176,18 +176,18 @@ You might want to try the script on a test database first. For this, please run 
 
 Tables to be created:
 
-```
+<pre>
 dbo.Addresses
 dbo.OrderDetails
 dbo.Orders
 dbo.ProductCategories
 dbo.Products
 dbo.Users
-```
+</pre>
 
 SPs to be created:
 
-```
+<pre>
 dbo.sp_AddOrder
 dbo.sp_AddOrderDetail
 dbo.sp_AddProduct
@@ -201,11 +201,11 @@ dbo.sp_GetProductCategories
 dbo.sp_GetProductsByCategory
 dbo.sp_UpdateProduct
 dbo.UpdateUser
-```
+</pre>
 
 If you want to create a sample SP file using these SPs, you can prepare a file as below using the **rnd-text**, **rnd-date**, and **rnd-number** functions described above.
 
-```
+<pre>
 dbo.sp_DeleteUser;@UserID={rnd-number:4,0123456789}
 dbo.sp_AddOrder;@UserID={rnd-number:3,123456789};@OrderDate={rnd-date:2013-2023}
 dbo.sp_UpdateUser;@UserID={rnd-number:3,123456789};@NewFirstName={rnd-text:10,abcdefghijklmnopqrstuvwxyz};@NewLastName={rnd-text:6,abcdefghijklmnopqrstuvwxyz};@NewAge={rnd-number:2,123456}
@@ -217,5 +217,4 @@ dbo.sp_GetProductCategories
 dbo.sp_AddOrderDetail;@OrderID={rnd-number:3,123456789};@ProductID={rnd-number:1,123456};@Quantity={rnd-number:2,12345689}
 dbo.sp_GetOrdersByUser;@UserID={rnd-number:3,123456789}
 dbo.sp_DeleteProduct;@ProductID={rnd-number:3,123456789}
-```
-
+</pre>
