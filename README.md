@@ -13,7 +13,7 @@ The codebase of the script consists of two files: `sql-load-gen.ps1` and `functi
 
 All four of the files mentioned above should be located within the same folder.
 
-## Preparing the config.txt File
+## Preparing the config.txt file
 The **`config.txt`** file consists of 9 parameters: `AuthenticationType`, `ServerName`, `DatabaseName`, `UserName`, `Password`, `ParallelConnections`, `ExecutionTimeLimit`, `SpFile`, and `RandomExecute`.
 
 * **AuthenticationType**: Specifies the type of authentication you will use to connect to the SQL Server. Only two values should be entered: either "**WIN**" or "**SQL**". If "**WIN**" is entered, it indicates connecting with Windows Authentication; if "**SQL**" is entered, it indicates connecting with SQL Server Authentication.
@@ -52,4 +52,58 @@ The name of the configuration file must be **`config.txt`**. The previously ment
 [RandomExecute]=1
 ```
 
+## Preparing the SP file
+In its current version, SQL Load Generator only executes Stored Procedures (SPs). Support for executing Ad-Hoc queries will be provided in upcoming versions.
+
+The SP file must be prepared in a specific format. Each SP should be written one per line. The most crucial writing style to pay attention to is the format for SPs with parameters. If there is a parametric SP, parameter names should be separated from other parameters and the SP with a semicolon ";". The writing format for a parametric SP should be as follows:
+
+<pre>Schema_Name.Sp_Name;@Parameter1=ParameterValue;@Parameter2=ParameterValue</pre>
+
+To better understand the above example, let's examine the sp_UpdateProduct SP.
+
+```
+CREATE PROCEDURE sp_UpdateProduct
+    @ProductID INT,
+    @NewProductName NVARCHAR(100),
+    @NewCategoryID INT,
+    @NewPrice DECIMAL(10,2)
+AS
+BEGIN  
+    UPDATE Products
+    SET 
+        ProductName = @NewProductName,
+        CategoryID = @NewCategoryID,
+        Price = @NewPrice
+    WHERE ProductID = @ProductID;
+END;
+```
+
+The above SP takes 4 different parameters: ProductID, NewProductName, NewCategoryID, and NewPrice. To execute this SP in SSMS, you would do it as follows.
+
+<pre>EXEC dbo.sp_UpdateProduct @ProductID = 2, @NewProductName = 'Winter Jacket', @NewCategoryID = 2, @NewPrice = 120.00</pre>
+
+Adapting the above usage to the SP file is as follows.
+
+<pre>dbo.sp_UpdateProduct;@ProductID=2;@NewProductName=Winter Jacket;@NewCategoryID=2;@NewPrice=120.00</pre>
+
+For SPs that do not take parameters, the usage should be in the form of Schema_Name.Sp_Name. The sp_GetProductCategories SP can be examined below.
+
+```
+CREATE PROCEDURE sp_GetProductCategories
+AS
+BEGIN
+    SELECT * FROM ProductCategories WITH(NOLOCK);
+END;
+```
+
+The usage of the sp_GetProductCategories SP within the SP file should be as follows.
+
+<pre>dbo.sp_GetProductCategories</pre>
+
+You can create an SP file by writing the above 2 examples one under the other.
+
+```
+dbo.sp_UpdateProduct;@ProductID=2;@NewProductName=Winter Jacket;@NewCategoryID=2;@NewPrice=120.00
+dbo.sp_GetProductCategories
+```
 
