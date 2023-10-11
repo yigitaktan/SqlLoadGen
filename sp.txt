@@ -1,0 +1,7 @@
+dbo.sp_DeleteUser;@UserID={rnd-number:3,123456789}
+dbo.sp_AddOrder;@UserID={rnd-number:3,123456789};@OrderDate={rnd-date:2013-2023}
+dbo.sp_UpdateUser;@UserID={rnd-number:3,123456789};@NewFirstName={rnd-text:10,abcdefghijklmnopqrstuvwxyz};@NewLastName={rnd-text:6,abcdefghijklmnopqrstuvwxyz};@NewAge={rnd-number:2,123456}
+dbo.sp_GetOrderDetails;@OrderID={rnd-number:3,123456789}
+dbo.sp_AddProduct;@ProductName={rnd-text:7,abcdefghijklmo};@CategoryID=2;@Price={rnd-number:3,123456789}
+dbo.sp_UpdateProduct;@ProductID={rnd-number:3,123456789};@NewProductName={rnd-text:7,abcdefghijklmnopqrstuvwxyz};@NewCategoryID=3;@NewPrice={rnd-number:3,123456}
+dbo.sp_GetProductsByCategory;@CategoryID={rnd-number:1,123456}

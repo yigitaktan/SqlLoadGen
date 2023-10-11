@@ -1,0 +1,10 @@
+[AuthenticationType]=WIN
+[ServerName]=SERVER\INSTANCE
+[DatabaseName]=DATABASE
+[UserName]=USER
+[Password]=PASSWORD
+[ParallelConnections]=30
+[ExecutionTimeLimit]=300
+[SpFile]=sp.txt
+[RandomExecute]=1
+
