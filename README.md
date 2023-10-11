@@ -117,7 +117,7 @@ dbo.sp_GetProductCategories
 ## Random value generation functions
 You might want to generate random parameter values for SPs that take parameters. There are 3 different usage types for this, and you can examine the usages below.
 
-* **rnd-number**: This function is used to generate a random number. Its usage is `{rnd-number:How_Many_Digits_Long,Which_Numbers_to_Choose_From}`. In the example below, there is a usage form to generate a 3-digit number from among the numbers 123456789.
+* **rnd-number**: This function is used to generate a random number. Its usage is `{rnd-number:How_Many_Digits_Long,Which_Numbers_to_Choose_From}`. In the example below, there is a usage form to generate a 3-digit number from among the numbers 0123456789.
   <pre>{rnd-number:3,0123456789}</pre>
 
 * **rnd-text**: This function is used to generate letters of the specified character length. Its usage is `{rnd-text:How_Many_Characters_Long,Which_Letters_to_Choose_From}`. In the example below, there is an example of generating random text from among the letters abcdefghijklmo, 7 characters in length.
