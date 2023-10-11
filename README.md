@@ -71,7 +71,7 @@ The SP file must be prepared in a specific format. Each SP should be written one
 
 To better understand the above example, let's examine the sp_UpdateProduct SP.
 
-```
+<pre>
 CREATE PROCEDURE sp_UpdateProduct
     @ProductID INT,
     @NewProductName NVARCHAR(100),
@@ -86,7 +86,7 @@ BEGIN
         Price = @NewPrice
     WHERE ProductID = @ProductID;
 END;
-```
+</pre>
 
 The above SP takes 4 different parameters: ProductID, NewProductName, NewCategoryID, and NewPrice. To execute this SP in SSMS, you would do it as follows.
 
