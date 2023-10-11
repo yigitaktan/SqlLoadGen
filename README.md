@@ -158,7 +158,7 @@ When the script completes the duration specified in `config.txt`, the word "**Co
 
 If there are any errors encountered during the execution of the SPs, it logs the details of each error by creating an error log file named `errlog.txt`. This log file is created in the same folder as the script files.
 
-![console-errlog2](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/d056908a-58e2-4e53-b0e7-73297c15c5c5)
+![console-errlog3](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/59e5cedd-8b28-47cf-af87-deee656a0df9)
 
 ## Encoding requirement
 Both `sql-load-gen.ps1` and `functions.psm1` files must be set with a character encoding of **UTF-16LE** or **UTF-16BE**. If either of these files has a different encoding standard than specified, the following error message will appear.
@@ -217,3 +217,4 @@ dbo.sp_GetProductsByCategory;@CategoryID={rnd-number:1,123456}
 dbo.sp_GetProductCategories
 dbo.sp_AddOrderDetail;@OrderID={rnd-number:3,123456789};@ProductID={rnd-number:1,123456};@Quantity={rnd-number:2,12345689}
 ```
+
