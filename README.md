@@ -174,5 +174,46 @@ When you download from GitHub, the encoding of all files within the ZIP may be *
 ## Creating the test environment
 You might want to try the script on a test database first. For this, please run the **[demo-setup.sql](https://github.com/yigitaktan/SqlLoadGen/blob/main/demo-setup.sql):**  file in the instance where you want to perform the test. When the specified file is executed, a new database named DemoDB will be created. This database will create 6 tables and 13 Stored Procedures (SPs).
 
+Tables to be created:
 
+```
+dbo.Addresses
+dbo.OrderDetails
+dbo.Orders
+dbo.ProductCategories
+dbo.Products
+dbo.Users
+```
 
+SPs to be created:
+
+```
+dbo.sp_AddOrder
+dbo.sp_AddOrderDetail
+dbo.sp_AddProduct
+dbo.sp_AddUserAndAddress
+dbo.sp_DeleteProduct
+dbo.sp_DeleteUser
+dbo.sp_GetAllUsers
+dbo.sp_GetOrderDetails
+dbo.sp_GetOrdersByUser
+dbo.sp_GetProductCategories
+dbo.sp_GetProductsByCategory
+dbo.sp_UpdateProduct
+dbo.UpdateUser
+```
+
+If you want to create a sample SP file using these SPs, you can prepare a file as below using the **rnd-text**, **rnd-date**, and **rnd-number** functions described above.
+
+```
+dbo.sp_DeleteUser;@UserID={rnd-number:4,0123456789}
+dbo.sp_AddOrder;@UserID={rnd-number:3,123456789};@OrderDate={rnd-date:2013-2023}
+dbo.sp_UpdateUser;@UserID={rnd-number:3,123456789};@NewFirstName={rnd-text:10,abcdefghijklmnopqrstuvwxyz};@NewLastName={rnd-text:6,abcdefghijklmnopqrstuvwxyz};@NewAge={rnd-number:2,123456}
+dbo.sp_GetUserAdress
+dbo.sp_GetOrderDetails;@OrderID={rnd-number:3,123456789}
+dbo.sp_AddProduct;@ProductName={rnd-text:7,abcdefghijklmo};@CategoryID=2;@Price={rnd-number:3,123456789}
+dbo.sp_UpdateProduct;@ProductID={rnd-number:3,123456789};@NewProductName={rnd-text:7,abcdefghijklmnopqrstuvwxyz};@NewCategoryID=3;@NewPrice={rnd-number:3,123456}
+dbo.sp_GetProductsByCategory;@CategoryID={rnd-number:1,123456}
+dbo.sp_GetProductCategories
+dbo.sp_AddOrderDetail;@OrderID={rnd-number:3,123456789};@ProductID={rnd-number:1,123456};@Quantity={rnd-number:2,12345689}
+```
