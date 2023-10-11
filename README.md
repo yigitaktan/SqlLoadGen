@@ -149,7 +149,7 @@ If the parameters in the `config.txt` file are not written as they should be, it
 
 As the script starts running and executing the SPs, you can track the elapsed time through the countdown and progress bar on the console screen.
 
-![console-progress](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/0f76ef53-9869-49d1-835e-ca075f732620)
+![console-progress2](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/aea791de-0b2f-4f65-9c0f-4b07e01405c9)
 
 When the script completes the duration specified in `config.txt`, the word "**Completed**" appears on the screen. Additionally, it reports how many of the executed SPs were successful and how many failed.
 
@@ -167,6 +167,7 @@ Both `sql-load-gen.ps1` and `functions.psm1` files must be set with a character 
 If you get an encoding error, you should open the files in a text editor like Notepad++ and save them as **UTF-16LE** or **UTF-16BE**. How to do this with Notepad++ is shown below.
 
 ![console-notepadpp](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/2a969ae8-4dac-41a3-b1ad-c40981f28af7)
+
 
 
 
