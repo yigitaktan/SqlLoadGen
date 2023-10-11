@@ -145,7 +145,7 @@ The script can be easily run by opening a command prompt. There is no need to op
 
 If the parameters in the `config.txt` file are not written as they should be, it will generate a detailed, informative error message.
 
-![console-error](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/2f9178e0-cb7b-4c5c-8707-f5c120a6c1bb)
+![console-error2](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/e8e1a59b-66c5-492f-adec-f7a87e5ae594)
 
 As the script starts running and executing the SPs, you can track the elapsed time through the countdown and progress bar on the console screen.
 
@@ -167,6 +167,7 @@ Both `sql-load-gen.ps1` and `functions.psm1` files must be set with a character 
 If you get an encoding error, you should open the files in a text editor like Notepad++ and save them as **UTF-16LE** or **UTF-16BE**. How to do this with Notepad++ is shown below.
 
 ![console-notepadpp](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/2a969ae8-4dac-41a3-b1ad-c40981f28af7)
+
 
 
 
