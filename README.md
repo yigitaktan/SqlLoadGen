@@ -90,7 +90,7 @@ END;
 
 The above SP takes 4 different parameters: ProductID, NewProductName, NewCategoryID, and NewPrice. To execute this SP in SSMS, you would do it as follows.
 
-<pre>EXEC dbo.sp_UpdateProduct @ProductID = 2, @NewProductName = 'Winter Jacket', @NewCategoryID = 2, @NewPrice = 120.00</pre>
+<pre>EXEC dbo.sp_UpdateProduct @ProductID=2, @NewProductName='Winter Jacket', @NewCategoryID=2, @NewPrice=120.00</pre>
 
 Adapting the above usage to the SP file is as follows.
 
@@ -98,13 +98,13 @@ Adapting the above usage to the SP file is as follows.
 
 For SPs that do not take parameters, the usage should be in the form of Schema_Name.Sp_Name. The sp_GetProductCategories SP can be examined below.
 
-```
+<pre>
 CREATE PROCEDURE sp_GetProductCategories
 AS
 BEGIN
     SELECT CategoryName FROM ProductCategories WITH(NOLOCK);
 END;
-```
+</pre>
 
 The usage of the sp_GetProductCategories SP within the SP file should be as follows.
 
