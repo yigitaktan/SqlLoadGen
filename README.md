@@ -50,7 +50,7 @@ If `AuthenticationType` is specified as "**WIN**", all the parameters mentioned 
 
 The name of the configuration file must be **`config.txt`**. The previously mentioned 9 parameters should be written inside square brackets and then assigned their respective values. Below is an example of how a config.txt file should be written.
 
-```
+<pre>
 [AuthenticationType]=SQL
 [ServerName]=DBPROD01\SQL2019
 [DatabaseName]=DemoDB
@@ -60,7 +60,7 @@ The name of the configuration file must be **`config.txt`**. The previously ment
 [ExecutionTimeLimit]=300
 [SpFile]=sp.txt
 [RandomExecute]=1
-```
+</pre>
 
 ## Preparing the SP file
 In its current version, SQL Load Generator only executes Stored Procedures (SPs). Support for executing Ad-Hoc queries will be provided in upcoming versions.
