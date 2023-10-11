@@ -1,12 +1,12 @@
 # SQL Load Generator
 
-* **[Getting started with the script](#Getting-started-with-the-script)**
-* **[Script components](#Script-components)**
+* **[Getting started with the script](#getting-started-with-the-script)**
+* **[Script components](#script-components)**
 * **[Preparing the config.txt file](#preparing-the-configtxt-file)**
 * **[Preparing the SP file](#preparing-the-sp-file)**
 * **[Random value generations](#random-value-generations)**
-* **[Running the script](#Running-the-script)**
-* **[Encoding requirement](#Encoding-requirement)**
+* **[Running the script](#running-the-script)**
+* **[Encoding requirement](#encoding-requirement)**
 
 
 ## Getting started with the script
