@@ -154,3 +154,7 @@ When the script completes the duration specified in `config.txt`, the word "**Co
 
 ![console-completed](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/5e782683-7c5e-4ff3-8db3-29f4ccef21fc)
 
+If there are any errors encountered during the execution of the SPs, it logs the details of each error by creating an error log file named `errlog.txt`. This log file is created in the same folder as the script files.
+
+![console-errlog](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/d220bbb2-1961-4346-8d61-64a6db59e83c)
+
