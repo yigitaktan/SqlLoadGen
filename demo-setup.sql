@@ -11,7 +11,7 @@ GO
 CREATE DATABASE [DemoDB];
 GO
 
-USE DemoDB;
+USE [DemoDB];
 GO
 
 -- Creating Users Table
@@ -48,7 +48,8 @@ CREATE TABLE dbo.ProductCategories (
 GO
 
 -- Inserting sample data into ProductCategories
-INSERT INTO dbo.ProductCategories (CategoryName) VALUES ('Electronics'), ('Clothing'), ('Home Goods');
+INSERT INTO dbo.ProductCategories (CategoryName)
+VALUES ('Electronics'), ('Clothing'), ('Home Goods');
 GO
 
 -- Creating Products Table
@@ -71,10 +72,8 @@ CREATE TABLE dbo.OrderDetails (
 GO
 
 -- Inserting sample data into Products
-INSERT INTO dbo.Products (ProductName, CategoryID, Price) VALUES 
-('Laptop', 1, 1000.00),
-('Shirt', 2, 20.00),
-('Toaster', 3, 30.00);
+INSERT INTO dbo.Products (ProductName, CategoryID, Price)
+VALUES ('Laptop', 1, 1000.00), ('Shirt', 2, 20.00), ('Toaster', 3, 30.00);
 
 DECLARE @i INT = 1;
 
@@ -112,13 +111,12 @@ END;
 SET @i = 1;
 
 -- Inserting sample data into ProductCategories
-INSERT INTO dbo.ProductCategories (CategoryName) VALUES ('Electronics'), ('Clothing'), ('Home Goods');
+INSERT INTO dbo.ProductCategories (CategoryName)
+VALUES ('Electronics'), ('Clothing'), ('Home Goods');
 
 -- Inserting sample data into Products
-INSERT INTO dbo.Products (ProductName, CategoryID, Price) VALUES 
-('Laptop', 1, 1700.00),
-('Shirt', 2, 20.00),
-('Toaster', 3, 30.00);
+INSERT INTO dbo.Products (ProductName, CategoryID, Price) 
+VALUES ('Laptop', 1, 1700.00), ('Shirt', 2, 20.00), ('Toaster', 3, 30.00);
 
 SET @i = 1;
 
@@ -241,7 +239,8 @@ GO
 CREATE PROCEDURE dbo.sp_GetAllUsers
 AS
 BEGIN
-    SELECT * FROM dbo.Users WITH(NOLOCK);
+    SELECT FirstName, LastName, Age
+	FROM dbo.Users WITH(NOLOCK);
 END;
 GO
 
@@ -250,7 +249,9 @@ CREATE PROCEDURE dbo.sp_GetOrdersByUser
     @UserID INT
 AS
 BEGIN
-    SELECT * FROM dbo.Orders WITH(NOLOCK) WHERE UserID = @UserID;
+    SELECT OrderID, UserID, OrderDate
+	FROM dbo.Orders WITH(NOLOCK)
+	WHERE UserID = @UserID;
 END;
 GO
 
@@ -259,7 +260,9 @@ CREATE PROCEDURE dbo.sp_GetOrderDetails
     @OrderID INT
 AS
 BEGIN
-    SELECT * FROM dbo.OrderDetails WHERE OrderID = @OrderID;
+    SELECT OrderID, ProductName, Quantity
+	FROM dbo.OrderDetails 
+	WHERE OrderID = @OrderID;
 END;
 GO
 
@@ -305,10 +308,12 @@ AS
 BEGIN
     IF EXISTS (SELECT 1 FROM dbo.OrderDetails WHERE ProductID = @ProductID)
     BEGIN
-        DELETE FROM dbo.OrderDetails WHERE ProductID = @ProductID;
+        DELETE FROM dbo.OrderDetails 
+		WHERE ProductID = @ProductID;
     END
     
-    DELETE FROM dbo.Products WHERE ProductID = @ProductID;
+    DELETE FROM dbo.Products 
+	WHERE ProductID = @ProductID;
 END;
 GO
 
@@ -317,7 +322,8 @@ CREATE PROCEDURE sp_GetProductsByCategory
     @CategoryID INT
 AS
 BEGIN
-    SELECT * FROM Products
+    SELECT ProductName, Price
+	FROM Products
     WHERE CategoryID = @CategoryID;
 END;
 GO
@@ -326,7 +332,8 @@ GO
 CREATE PROCEDURE sp_GetProductCategories
 AS
 BEGIN
-    SELECT CategoryName FROM ProductCategories WITH(NOLOCK);
+    SELECT CategoryName 
+	FROM ProductCategories WITH(NOLOCK);
 END;
 GO
 
