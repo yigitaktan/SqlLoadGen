@@ -209,12 +209,13 @@ If you want to create a sample SP file using these SPs, you can prepare a file a
 dbo.sp_DeleteUser;@UserID={rnd-number:4,0123456789}
 dbo.sp_AddOrder;@UserID={rnd-number:3,123456789};@OrderDate={rnd-date:2013-2023}
 dbo.sp_UpdateUser;@UserID={rnd-number:3,123456789};@NewFirstName={rnd-text:10,abcdefghijklmnopqrstuvwxyz};@NewLastName={rnd-text:6,abcdefghijklmnopqrstuvwxyz};@NewAge={rnd-number:2,123456}
-dbo.sp_GetUserAdress
 dbo.sp_GetOrderDetails;@OrderID={rnd-number:3,123456789}
 dbo.sp_AddProduct;@ProductName={rnd-text:7,abcdefghijklmo};@CategoryID=2;@Price={rnd-number:3,123456789}
 dbo.sp_UpdateProduct;@ProductID={rnd-number:3,123456789};@NewProductName={rnd-text:7,abcdefghijklmnopqrstuvwxyz};@NewCategoryID=3;@NewPrice={rnd-number:3,123456}
 dbo.sp_GetProductsByCategory;@CategoryID={rnd-number:1,123456}
 dbo.sp_GetProductCategories
 dbo.sp_AddOrderDetail;@OrderID={rnd-number:3,123456789};@ProductID={rnd-number:1,123456};@Quantity={rnd-number:2,12345689}
+dbo.sp_GetOrdersByUser;@UserID={rnd-number:3,123456789}
+dbo.sp_DeleteProduct;@ProductID={rnd-number:3,123456789}
 ```
 
