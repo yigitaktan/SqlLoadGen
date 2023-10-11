@@ -107,3 +107,23 @@ dbo.sp_UpdateProduct;@ProductID=2;@NewProductName=Winter Jacket;@NewCategoryID=2
 dbo.sp_GetProductCategories
 ```
 
+## Random Value Generation Functions
+You might want to generate random parameter values for SPs that take parameters. There are 3 different usage types for this, and you can examine the usages below.
+
+* **rnd-number**: This function is used to generate a random number. Its usage is `{rnd-number:How_Many_Digits_Long,Which_Numbers_to_Choose_From}`. In the example below, there is a usage form to generate a 3-digit number from among the numbers 123456789.
+  <pre>{rnd-number:3,0123456789}</pre>
+
+* **rnd-text**: This function is used to generate letters of the specified character length. Its usage is `{rnd-text:How_Many_Characters_Long,Which_Letters_to_Choose_From}`. In the example below, there is an example of generating random text from among the letters abcdefghijklmo, 7 characters in length.
+  <pre>{rnd-text:7,abcdefghijklmo}</pre>
+
+* **rnd-date**: This function generates data in the "**yyyy-MM-dd**" format. It has 2 parameters, both are year parameters. The start and end year are written, and the desired date is generated from among the specified years. Its usage is `{rnd-date:Start_Year-End_Year}`. In the example below, a date is being generated between the years 2013 and 2023.
+  <pre>{rnd-date:2013-2023}</pre>
+
+To give examples of the usage of these 3 functions, an example can be created as follows.
+
+```
+dbo.sp_DeleteUser;@UserID=**{rnd-number:3,123456789}**
+dbo.sp_AddOrder;@UserID=**{rnd-number:5,12345}**;@OrderDate=**{rnd-date:2013-2023}**
+dbo.sp_AddProduct;@ProductName=**{rnd-text:10,abcdefghijklmnopqrstuvwxyz}**;@CategoryID=2;@Price=**{rnd-number:3,123456789}**
+```
+
