@@ -5,6 +5,7 @@
 * **[Preparing the config.txt file](#preparing-the-configtxt-file)**
 * **[Preparing the SP file](#preparing-the-sp-file)**
 * **[Random value generations](#random-value-generations)**
+* **[Running the script](#Running-the-script)**
 
 
 ## Getting started with the script
@@ -134,3 +135,9 @@ dbo.sp_AddOrder;@UserID={rnd-number:5,12345};@OrderDate={rnd-date:2013-2023}
 dbo.sp_AddProduct;@ProductName={rnd-text:10,abcdefghijklmnopqrstuvwxyz};@CategoryID=2;@Price={rnd-number:3,123456789}
 ```
 
+## Running the script
+The script can be easily run by opening a command prompt. There is no need to open the console with a user that has administrator privileges. All you need to do is place the necessary files mentioned above into a single folder and run the following command.
+
+<pre>powershell.exe -File .\sql-load-gen.ps1</pre>
+
+![console-run](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/e7326c5b-3e1a-44ba-8372-e5636e6037b7)
