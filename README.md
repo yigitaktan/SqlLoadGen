@@ -55,7 +55,7 @@ The name of the configuration file must be **`config.txt`**. The previously ment
 ## Preparing the SP file
 In its current version, SQL Load Generator only executes Stored Procedures (SPs). Support for executing Ad-Hoc queries will be provided in upcoming versions.
 
-The SP file must be prepared in a specific format. Each SP should be written one per line. The most crucial writing style to pay attention to is the format for SPs with parameters. If there is a parametric SP, parameter names should be separated from other parameters and the SP with a semicolon ";". The writing format for a parametric SP should be as follows:
+The SP file must be prepared in a specific format. Each SP should be written one per line. The most crucial writing style to pay attention to is the format for SPs with parameters. If there is a parametric SP, parameter names should be separated from other parameters and the SP name with a semicolon "**;**". The writing format for a parametric SP should be as follows.
 
 <pre>Schema_Name.Sp_Name;@Parameter1=ParameterValue;@Parameter2=ParameterValue</pre>
 
@@ -92,7 +92,7 @@ For SPs that do not take parameters, the usage should be in the form of Schema_N
 CREATE PROCEDURE sp_GetProductCategories
 AS
 BEGIN
-    SELECT * FROM ProductCategories WITH(NOLOCK);
+    SELECT CategoryName FROM ProductCategories WITH(NOLOCK);
 END;
 ```
 
