@@ -4,7 +4,7 @@
 * **[Script components](#Script-components)**
 * **[Preparing the config.txt file](#preparing-the-configtxt-file)**
 * **[Preparing the SP file](#preparing-the-sp-file)**
-* **[Random Value Generation Functions](#random-value-generation-functions)**
+* **[Random value generation functions](#random-value-generation-functions)**
 
 
 ## Getting started with the script
@@ -114,7 +114,7 @@ dbo.sp_UpdateProduct;@ProductID=2;@NewProductName=Winter Jacket;@NewCategoryID=2
 dbo.sp_GetProductCategories
 ```
 
-## Random Value Generation Functions
+## Random value generation functions
 You might want to generate random parameter values for SPs that take parameters. There are 3 different usage types for this, and you can examine the usages below.
 
 * **rnd-number**: This function is used to generate a random number. Its usage is `{rnd-number:How_Many_Digits_Long,Which_Numbers_to_Choose_From}`. In the example below, there is a usage form to generate a 3-digit number from among the numbers 123456789.
