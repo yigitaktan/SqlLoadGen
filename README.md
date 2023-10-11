@@ -172,7 +172,7 @@ If you get an encoding error, you should open the files in a text editor like No
 When you download from GitHub, the encoding of all files within the ZIP may be **UTF-8**. Please check. If different, make the change as described above.
 
 ## Creating the test environment
-You might want to try the script on a test database first. For this, please run the **[demo-setup.sql](https://github.com/yigitaktan/SqlLoadGen/blob/main/demo-setup.sql):**  file in the instance where you want to perform the test. When the specified file is executed, a new database named DemoDB will be created. This database will create 6 tables and 13 Stored Procedures (SPs).
+You might want to try the script on a test database first. For this, please run the **[demo-setup.sql](https://github.com/yigitaktan/SqlLoadGen/blob/main/demo-setup.sql)**  file in the instance where you want to perform the test. When the specified file is executed, a new database named DemoDB will be created. This database will create 6 tables and 13 Stored Procedures (SPs).
 
 Tables to be created:
 
