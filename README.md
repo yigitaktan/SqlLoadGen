@@ -141,7 +141,7 @@ The script can be easily run by opening a command prompt. There is no need to op
 
 <pre>powershell.exe -File .\sql-load-gen.ps1</pre>
 
-![console-run](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/e7326c5b-3e1a-44ba-8372-e5636e6037b7)
+![console-run2](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/65b7d3ad-5c00-4921-9b47-2df4e285299f)
 
 If the parameters in the `config.txt` file are not written as they should be, it will generate a detailed, informative error message.
 
@@ -167,6 +167,7 @@ Both `sql-load-gen.ps1` and `functions.psm1` files must be set with a character 
 If you get an encoding error, you should open the files in a text editor like Notepad++ and save them as **UTF-16LE** or **UTF-16BE**. How to do this with Notepad++ is shown below.
 
 ![console-notepadpp](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/2a969ae8-4dac-41a3-b1ad-c40981f28af7)
+
 
 
 
