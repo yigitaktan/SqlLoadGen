@@ -167,7 +167,7 @@ Both `sql-load-gen.ps1` and `functions.psm1` files must be set with a character 
 
 If you get an encoding error, you should open the files in a text editor like Notepad++ and save them as **UTF-16LE** or **UTF-16BE**. How to do this with Notepad++ is shown below.
 
-![console-notepadpp](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/2a969ae8-4dac-41a3-b1ad-c40981f28af7)
+![console-notepadpp](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/bc89e9a5-d098-455a-aa21-f9c85c703405)
 
 When you download from GitHub, the encoding of all files within the ZIP may be **UTF-8**. Please check. If different, make the change as described above.
 
