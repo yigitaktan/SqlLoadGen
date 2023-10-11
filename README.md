@@ -90,7 +90,7 @@ END;
 
 The above SP takes 4 different parameters: ProductID, NewProductName, NewCategoryID, and NewPrice. To execute this SP in SSMS, you would do it as follows.
 
-<pre>EXEC dbo.sp_UpdateProduct @ProductID=2, @NewProductName='Winter Jacket', @NewCategoryID=2, @NewPrice=120.00</pre>
+<pre>EXEC dbo.sp_UpdateProduct @ProductID = 2, @NewProductName = 'Winter Jacket', @NewCategoryID = 2, @NewPrice = 120.00</pre>
 
 Adapting the above usage to the SP file is as follows.
 
@@ -112,10 +112,10 @@ The usage of the sp_GetProductCategories SP within the SP file should be as foll
 
 You can create an SP file by writing the above 2 examples one under the other.
 
-```
+<pre>
 dbo.sp_UpdateProduct;@ProductID=2;@NewProductName=Winter Jacket;@NewCategoryID=2;@NewPrice=120.00
 dbo.sp_GetProductCategories
-```
+</pre>
 
 ## Random value generations
 You might want to generate random parameter values for SPs that take parameters. There are 3 different usage types for this, and you can examine the usages below.
