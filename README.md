@@ -168,7 +168,7 @@ If you get an encoding error, you should open the files in a text editor like No
 
 ![console-notepadpp](https://github.com/yigitaktan/SqlLoadGen/assets/51110247/2a969ae8-4dac-41a3-b1ad-c40981f28af7)
 
-
+When you download from GitHub, the encoding of all files within the ZIP may be **UTF-8**. Please check. If different, make the change as described above.
 
 
 
