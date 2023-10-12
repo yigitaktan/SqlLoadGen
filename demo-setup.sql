@@ -79,7 +79,7 @@ DECLARE @i INT = 1;
 
 -- Inserting sample data into Users
 WHILE @i <= 3000
-BEGIN
+BEGIN;
     INSERT INTO dbo.Users (FirstName, LastName, Age)
     VALUES ('Name' + CAST(@i AS NVARCHAR(50)), 'Surname' + CAST(@i AS NVARCHAR(50)), (RAND() * 40) + 20);
 
@@ -90,7 +90,7 @@ SET @i = 1;
 
 -- Inserting sample data into Addresses
 WHILE @i <= 3000
-BEGIN
+BEGIN;
     INSERT INTO dbo.Addresses (UserID, City, PostalCode)
     VALUES (@i, 'City' + CAST(@i AS NVARCHAR(50)), CAST((RAND() * 89999) + 10000 AS NVARCHAR(20)));
 
@@ -101,7 +101,7 @@ SET @i = 1;
 
 -- Inserting sample data into Orders
 WHILE @i <= 3000
-BEGIN
+BEGIN;
     INSERT INTO dbo.Orders (UserID, OrderDate)
     VALUES (@i, DATEADD(DAY, (RAND() * 365), '2022-01-01'));
 
@@ -122,7 +122,7 @@ SET @i = 1;
 
 -- Inserting sample data into OrderDetails
 WHILE @i <= 1000
-BEGIN
+BEGIN;
     DECLARE @ProductID INT;
     DECLARE @ProductName NVARCHAR(100);
     
@@ -145,7 +145,7 @@ CREATE PROCEDURE dbo.sp_AddUserAndAddress
     @City NVARCHAR(50),
     @PostalCode NVARCHAR(20)
 AS
-BEGIN  
+BEGIN;  
     DECLARE @UserID INT;
 
     INSERT INTO dbo.Users (FirstName, LastName, Age)
@@ -165,7 +165,7 @@ CREATE PROCEDURE dbo.sp_UpdateUser
     @NewLastName NVARCHAR(50),
     @NewAge INT
 AS
-BEGIN  
+BEGIN;  
     UPDATE dbo.Users
     SET 
         FirstName = @NewFirstName,
@@ -179,7 +179,7 @@ GO
 CREATE PROCEDURE sp_DeleteUser
     @UserID INT
 AS
-BEGIN
+BEGIN;
     DELETE FROM OrderDetails
     WHERE OrderID IN (SELECT OrderID FROM Orders WHERE UserID = @UserID);
 
@@ -199,12 +199,12 @@ CREATE PROCEDURE dbo.sp_AddOrder
     @UserID INT,
     @OrderDate DATE
 AS
-BEGIN   
+BEGIN;   
     IF NOT EXISTS (SELECT 1 FROM dbo.Users WHERE UserID = @UserID)
-    BEGIN
+    BEGIN;
         THROW 50000, 'UserID does not exist in the Users table.', 1;
         RETURN;
-    END
+    END;
     
     INSERT INTO dbo.Orders (UserID, OrderDate)
     VALUES (@UserID, @OrderDate);
@@ -217,18 +217,18 @@ CREATE PROCEDURE dbo.sp_AddOrderDetail
     @ProductID INT,
     @Quantity INT
 AS
-BEGIN
+BEGIN;
     IF NOT EXISTS (SELECT 1 FROM dbo.Orders WHERE OrderID = @OrderID)
-    BEGIN
+    BEGIN;
         THROW 50000, 'OrderID does not exist in the Orders table.', 1;
         RETURN;
-    END
+    END;
     
     IF NOT EXISTS (SELECT 1 FROM dbo.Products WHERE ProductID = @ProductID)
-    BEGIN
+    BEGIN;
         THROW 50000, 'ProductID does not exist in the Products table.', 1;
         RETURN;
-    END
+    END;
     
     INSERT INTO dbo.OrderDetails (OrderID, ProductID, Quantity)
     VALUES (@OrderID, @ProductID, @Quantity);
@@ -238,9 +238,9 @@ GO
 -- Retrieves all users from the Users table.
 CREATE PROCEDURE dbo.sp_GetAllUsers
 AS
-BEGIN
+BEGIN;
     SELECT FirstName, LastName, Age
-	FROM dbo.Users WITH(NOLOCK);
+    FROM dbo.Users WITH(NOLOCK);
 END;
 GO
 
@@ -248,10 +248,10 @@ GO
 CREATE PROCEDURE dbo.sp_GetOrdersByUser
     @UserID INT
 AS
-BEGIN
+BEGIN;
     SELECT OrderID, UserID, OrderDate
-	FROM dbo.Orders WITH(NOLOCK)
-	WHERE UserID = @UserID;
+    FROM dbo.Orders WITH(NOLOCK)
+    WHERE UserID = @UserID;
 END;
 GO
 
@@ -259,10 +259,10 @@ GO
 CREATE PROCEDURE dbo.sp_GetOrderDetails
     @OrderID INT
 AS
-BEGIN
+BEGIN;
     SELECT OrderID, ProductName, Quantity
-	FROM dbo.OrderDetails 
-	WHERE OrderID = @OrderID;
+    FROM dbo.OrderDetails 
+    WHERE OrderID = @OrderID;
 END;
 GO
 
@@ -272,12 +272,12 @@ CREATE PROCEDURE sp_AddProduct
     @CategoryID INT,
     @Price DECIMAL(10,2)
 AS
-BEGIN  
+BEGIN;
     IF NOT EXISTS (SELECT 1 FROM ProductCategories WHERE CategoryID = @CategoryID)
-    BEGIN
+    BEGIN;
         THROW 50000, 'CategoryID does not exist in the ProductCategories table.', 1;
         RETURN;
-    END
+    END;
     
     INSERT INTO Products (ProductName, CategoryID, Price)
     VALUES (@ProductName, @CategoryID, @Price);
@@ -291,7 +291,7 @@ CREATE PROCEDURE sp_UpdateProduct
     @NewCategoryID INT,
     @NewPrice DECIMAL(10,2)
 AS
-BEGIN  
+BEGIN;  
     UPDATE Products
     SET 
         ProductName = @NewProductName,
@@ -305,15 +305,15 @@ GO
 CREATE PROCEDURE sp_DeleteProduct
     @ProductID INT
 AS
-BEGIN
+BEGIN;
     IF EXISTS (SELECT 1 FROM dbo.OrderDetails WHERE ProductID = @ProductID)
-    BEGIN
+    BEGIN;
         DELETE FROM dbo.OrderDetails 
-		WHERE ProductID = @ProductID;
-    END
+        WHERE ProductID = @ProductID;
+    END;
     
     DELETE FROM dbo.Products 
-	WHERE ProductID = @ProductID;
+    WHERE ProductID = @ProductID;
 END;
 GO
 
@@ -321,9 +321,9 @@ GO
 CREATE PROCEDURE sp_GetProductsByCategory
     @CategoryID INT
 AS
-BEGIN
+BEGIN;
     SELECT ProductName, Price
-	FROM Products
+    FROM Products
     WHERE CategoryID = @CategoryID;
 END;
 GO
@@ -331,9 +331,9 @@ GO
 -- Retrieves all product categories.
 CREATE PROCEDURE sp_GetProductCategories
 AS
-BEGIN
+BEGIN;
     SELECT CategoryName 
-	FROM ProductCategories WITH(NOLOCK);
+    FROM ProductCategories WITH(NOLOCK);
 END;
 GO
 
@@ -342,10 +342,10 @@ GO
 
 -- Check if the login already exists
 IF EXISTS (SELECT 1 FROM sys.server_principals WHERE name = 'MyDemoUser')
-BEGIN
+BEGIN;
     -- Drop the login if it exists
     DROP LOGIN MyDemoUser;
-END
+END;
 
 -- Create the login
 CREATE LOGIN MyDemoUser WITH PASSWORD = 'Password.1';
@@ -356,10 +356,10 @@ GO
 
 -- Check if the user already exists
 IF EXISTS (SELECT 1 FROM sys.database_principals WHERE name = 'MyDemoUser')
-BEGIN
+BEGIN;
     -- Drop the user if it exists
     DROP USER MyDemoUser;
-END
+END;
 
 -- Create the user
 CREATE USER MyDemoUser FOR LOGIN MyDemoUser;
