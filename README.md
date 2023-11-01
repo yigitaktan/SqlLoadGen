@@ -28,7 +28,7 @@ The **`config.txt`** file consists of 9 parameters: `AuthenticationType`, `Serve
 
 * **[AuthenticationType]**: Specifies the type of authentication you will use to connect to the SQL Server. Only two values should be entered: either "**WIN**" or "**SQL**". If "**WIN**" is entered, it indicates connecting with Windows Authentication; if "**SQL**" is entered, it indicates connecting with SQL Server Authentication.
   
-* **[ServerName]**: Define the instance you will connect to here. If it's the default instance, enter in the form of **SERVERNAME**; if it's a named instance, enter as **SERVERNAME/INSTANCENAME**.
+* **[ServerName]**: Define the instance you will connect to here. If it's the default instance, enter in the form of **SERVERNAME**; if it's a named instance, enter as **SERVERNAME\INSTANCENAME**.
   
 * **[DatabaseName]**: Enter the name of the database where you will generate the load.
   
