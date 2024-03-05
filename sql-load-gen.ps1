@@ -112,10 +112,10 @@ Validate_Config_File -ConfigParams $ConfigParams
     Constructing the connection string based on the extracted and validated configuration parameters.
 #>
 if ($AuthenticationType.ToUpper() -eq "WIN") {
-  $Connectionstring = "Server=$ServerName;Database=$DatabaseName;Trusted_Connection=True;"
+  $Global:Connectionstring = "Server=$ServerName;Database=$DatabaseName;Trusted_Connection=True;"
 }
 elseif ($AuthenticationType.ToUpper() -eq "SQL") {
-  $Connectionstring = "Server=$ServerName;Database=$DatabaseName;User Id=$UserName;Password=$Password;"
+  $Global:Connectionstring = "Server=$ServerName;Database=$DatabaseName;User Id=$UserName;Password=$Password;"
 }
 
 <# 
@@ -154,7 +154,7 @@ $Connections = @()
 
 for ($i = 1; $i -le $ParallelConnections; $i++) {
   $Connection = New-Object System.Data.SqlClient.SqlConnection
-  $Connection.ConnectionString = $Connectionstring
+  $Connection.ConnectionString = $Global:Connectionstring
   $Connection.Open()
   $Connections += $Connection
 }
