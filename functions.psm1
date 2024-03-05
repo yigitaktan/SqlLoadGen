@@ -172,7 +172,7 @@ function Write-ErrorToFile {
 function Connection_Spinner {
   param([scriptblock]$function,[string]$Label)
 
-  $JobArguments = @($Connectionstring)
+  $JobArguments = @($Global:Connectionstring)
   $Job = Start-Job -ScriptBlock $function -ArgumentList $jobArguments
 
   #$Symbols = @("⣾⣿", "⣽⣿", "⣻⣿", "⢿⣿", "⡿⣿", "⣟⣿", "⣯⣿", "⣷⣿", "⣿⣾", "⣿⣽", "⣿⣻", "⣿⢿", "⣿⡿", "⣿⣟", "⣿⣯", "⣿⣷")
