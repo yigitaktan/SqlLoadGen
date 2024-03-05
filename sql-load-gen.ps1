@@ -42,7 +42,7 @@ Get_File_Encoding -FilePath $FunctionFile
 <# 
     Displaying the application header in the console, providing basic information about the script.
 #>
-$AppVer = "10.2023.2.002"
+$AppVer = "03.2024.2.001"
 Write-Host " ┌─────────────────────────────────────────────────────────────────┐" -ForegroundColor DarkGray
 Write_Color_Text -Text ' │                       ','SQL Load Generator','                        │' -Colour DarkGray,White,DarkGray
 Write-Host " ├─────────────┬───────────┬──────────────────────┬────────────────┤" -ForegroundColor DarkGray
