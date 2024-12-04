@@ -348,7 +348,7 @@ BEGIN;
 END;
 
 -- Create the login
-CREATE LOGIN MyDemoUser WITH PASSWORD = 'Password.1';
+CREATE LOGIN MyDemoUser WITH PASSWORD = '0M1y2+0S1t2r3o4n5g6+0P1a2s3s4w5o6r7d8.@';
 GO
 
 USE [DemoDB]
